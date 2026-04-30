@@ -67,3 +67,40 @@
 &xhci {
 	status = "okay";
 };
+
+&nand {
+	status = "okay";
+
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		partition@0 {
+			label = "u-boot";
+			reg = <0x0 0x80000>;
+			read-only;
+		};
+
+		partition@80000 {
+			label = "u-boot-env";
+			reg = <0x80000 0x80000>;
+		};
+
+		factory: partition@100000 {
+			label = "factory";
+			reg = <0x100000 0x40000>;
+			read-only;
+		};
+
+		partition@140000 {
+			label = "kernel";
+			reg = <0x140000 0x400000>;
+		};
+
+		partition@540000 {
+			label = "ubi";
+			reg = <0x540000 0x7a40000>;
+		};
+	};
+};
