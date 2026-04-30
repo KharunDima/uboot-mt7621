@@ -23,32 +23,24 @@
 			groups = "spi";
 			function = "nand1";
 		};
-
 		sdhci {
 			groups = "sdhci";
 			function = "nand2";
 		};
+
+		jtag {
+			groups = "jtag";
+			function = "gpio";
+		};
+
+		wdt {
+			groups = "wdt";
+			function = "gpio";
+		};
+
+		rgmii2 {
+			groups = "rgmii2";
+			function = "gpio";
+		};
 	};
-};
-
-&gpio {
-	status = "okay";
-};
-
-&i2c {
-	gpios = <&gpio 3 1>, /* PIN3 as SDA */
-		<&gpio 4 1>; /* PIN4 as CLK */
-	status = "disabled";
-};
-
-&uartlite0 {
-	status = "okay";
-};
-
-&eth {
-	status = "okay";
-};
-
-&xhci {
-	status = "okay";
 };
