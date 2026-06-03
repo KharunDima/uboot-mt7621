@@ -123,4 +123,3 @@ mkdir archive
 cat defconfig > archive/mt7621_defconfig
 mv u-boot-mt7621.bin archive/
 mv u-boot.img archive/
-mv u-boot-lzma.img archive/
